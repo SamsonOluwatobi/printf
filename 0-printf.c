@@ -1,70 +1,58 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
 
 /**
  * _printf - Custom printf function
  * @format: The format string
  * @...: Variadic arguments
- * return: Number of characters printed
+ * Return: Number of characters printed
  */
 int _printf(const char *format, ...)
 {
-	int printed_charc = 0;
-
+	int i;
 	va_list args;
-	const char *str;
-
-	if (format == NULL)
-	{
-		return (-1);
-	}
 
 	va_start(args, format);
-	while (*format)
-		if (*format != '%')
+	for (i = 0; format[i]; i++)
+	{
+		while (format[i] != '%')
 		{
-			write(1, format, 1);
-			printed_charc++;
+			if (format[i] == '\0')
+				return (i);
+			_putchar(format[i]);
+			i++;
 		}
-		else
+		i++;
+		switch (format[i])
 		{
-			if (*format == 'c')
-			{
-				char c = va_arg(args, int);
-				write(1, &c, 1);
-				printed_charc++;
-			}
-			else if (*format == 's')
-			{
-				str = va_arg(args, char*);
-				if (str == NULL)
-					str = "(null)";
-				while (*str)
-				{
-					write(1, str, 1);
-					str++;
-					printed_charc++;
-				}
-			}
-			else if (*format == '%')
-			{
-				write(1, "%", 1);
-				printed_charc++;
-			}
+			case 'c':
+				_putchar(va_arg(args, int));
+				break;
+			case 's':
+				_puts(va_arg(args, char *));
+				break;
+			case '%':
+				_putchar(_putchar(format[i]));
+				break;
+			case 'b':
+				print_binary(va_arg(args, unsigned int));
+				break;
+			case 'u':
+				print_unsignedint(va_arg(args, unsigned int));
+				break;
+			case 'o':
+				print_octal(va_arg(args, int));
+				break;
+			case 'x':
+				print_hex(va_arg(args, int));
+				break;
+			case 'X':
+				print_HEX(va_arg(args, int));
+				break;
+			default:
+				_putchar(format[i]);
+				break;
 		}
-	format++;
+	}
 	va_end(args);
-	return (printed_charc);
-}
-
-int main(void)
-{
-	_printf("ifeoma\n");
-	_printf("%c\n", 'K');
-	_printf("%s\n", "String");
-	_printf("%%\n");
-
-	return (0);
+	return (i);
 }
