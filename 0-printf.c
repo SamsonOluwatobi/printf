@@ -33,6 +33,12 @@ int _printf(const char *format, ...)
 			case '%':
 				_putchar(_putchar(format[i]));
 				break;
+			case 'i':
+				print_number(va_arg(args, int));
+				break;
+			case 'd':
+				print_number(va_arg(args, int));
+				break;
 			case 'b':
 				print_binary(va_arg(args, unsigned int));
 				break;

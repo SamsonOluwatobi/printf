@@ -4,15 +4,8 @@
 #include <string.h>
 #include <unistd.h>
 
-int _printf(const char *format, ...);
-int print_number(int num);
-int digit_count(int n);
-
-#ifndef HEADER_FILE
-#define HEADER_FILE
-#include <stdarg.h>
-#include <stdlib.h>
-
+void print_number(int num);
+void digit_count(int n);
 int _putchar(char c);
 int _printf(const char *format, ...);
 void _puts(char *str);
