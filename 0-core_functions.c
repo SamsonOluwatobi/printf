@@ -63,7 +63,7 @@ int _printpercent(va_list args, char Buffer[])
  */
 int _printint(va_list args, char Buffer[])
 {
-	int i = BUFF_SIZE - 3;
+	int i = BUFF_SIZE - 2;
 	int neg = 0;
 	int l = va_arg(args, int);
 	unsigned int n;
@@ -75,6 +75,7 @@ int _printint(va_list args, char Buffer[])
 
 	if (l < 0)
 	{
+		i = BUFF_SIZE - 3;
 		n = (unsigned int)(-l);
 		neg = 1;
 	}
@@ -86,4 +87,37 @@ int _printint(va_list args, char Buffer[])
 	}
 	i++;
 	return (format_number(neg, i, Buffer));
+}
+
+
+int _printbinary(va_list args, char Buffer[])
+{
+	unsigned int n, bitmask, bit[32], i, bit_count;
+	int count;
+
+	NON(Buffer);
+
+	n = va_arg(args, int);
+	bitmask = 2147483648;
+	bit[0] = n / bitmask;
+
+	for (i = 1; i < 32; i++)
+	{
+		bitmask /= 2;
+		bit[i] = (n / bitmask) % 2;
+	}
+
+	for (i = 0, bit_count = 0, count = 0; i < 32; i++)
+	{
+		bit_count += bit[i];
+
+		if (bit_count || i == 31)
+		{
+			char bit_char = '0' + bit[i];
+
+			write(1, &bit_char, 1);
+			count++;
+		}
+	}
+	return (count);
 }

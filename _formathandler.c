@@ -47,3 +47,12 @@ int format_num(int index, char Buffer[], int len, char _ch)
 		Buffer[--index] = _ch;
 	return (write(1, &Buffer[index], len));
 }
+
+
+int format_unsigned(int index, char Buffer[])
+{
+	int len = BUFF_SIZE - index - 1;
+
+
+	return (write(1, &Buffer[index], len));
+}
