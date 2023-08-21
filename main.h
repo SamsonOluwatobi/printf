@@ -1,19 +1,48 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
 #include <stdarg.h>
-#include <string.h>
 #include <unistd.h>
 
-void print_number(int num);
-void digit_count(int n);
-int _putchar(char c);
+#define NON(x) (void)(x)
+#define BUFF_SIZE 1024
+
+/**
+ * struct formatMap - struct operation
+ * @formatMap: This will store the format character
+ * @handle: This will store the function to call to handle that format
+ */
+struct formatMap
+{
+	char formatMap;
+	int (*handler)(va_list, char[]);
+};
+
+/**
+ * typedef struct formatMap format_Map - typedef struct operation
+ * @formatMap: refers to the struct format_Map type
+ * @format_Map: refers to the second member of struct format_Map, which is the function pointer
+ */
+typedef struct formatMap format_Map;
+
 int _printf(const char *format, ...);
-void _puts(char *str);
-void print_unsignedint(unsigned int num);
-void print_octal(unsigned int num);
-void print_hex(unsigned int num);
-void print_HEX(unsigned int num);
-void print_binary(unsigned int num);
+int format_output(const char *formatMap, int *index, va_list args, char Buffer[]);
+
+int format_char(char c, char Buffer[]);
+int format_number(int neg, int index, char Buffer[]);
+int format_num(int index, char Buffer[], int len, char _ch);
+
+
+int format_output(const char *formatMap, int *index, va_list ls, char Buffer[]);
+
+
+int _printchar(va_list args, char Buffer[]);
+int _printstring(va_list args, char Buffer[]);
+int _printpercent(va_list args, char Buffer[]);
+int _printint(va_list args, char Buffer[]);
+
 
 
 #endif
