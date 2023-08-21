@@ -1,6 +1,24 @@
 #include "main.h"
 
-int format_output(const char *formatMap, int *index, va_list args, char Buffer[])
+/**
+ * format_output - Process and format output
+ * according to the provided format string.
+ * @formatMap: The format string containing format specifiers.
+ * @index: Pointer to the current index in the format string.
+ * @args: The variable argument list containing values to be formatted.
+ * @Buffer: The buffer to store the formatted output.
+ *
+ * This function processes format specifiers
+ * in the @formatMap string and performs
+ * the appropriate formatting for each specifier.
+ * It uses the @args variable argument
+ * list to retrieve values for formatting and
+ * stores the formatted output in @Buffer.
+ *
+ * Return: The number of characters written to @Buffer, or -1 on error.
+ */
+int format_output(const char *formatMap,
+	      int *index, va_list args, char Buffer[])
 {
 	int i, ul = 0, _printedchars = -1;
 

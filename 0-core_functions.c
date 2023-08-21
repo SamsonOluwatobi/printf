@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * _printchar - Prints a character.
+ * @args: A va_list containing the arguments.
+ * @Buffer: The buffer to store the formatted output.
+ *
+ * Return: The number of characters printed.
+ */
 int _printchar(va_list args, char Buffer[])
 {
 	char c;
@@ -8,6 +15,13 @@ int _printchar(va_list args, char Buffer[])
 	return (format_char(c, Buffer));
 }
 
+/**
+ * _printstring - Prints a string.
+ * @args: A va_list containing the arguments.
+ * @Buffer: The buffer to store the formatted output.
+ *
+ * Return: The number of characters printed.
+ */
 int _printstring(va_list args, char Buffer[])
 {
 	int len = 0;
@@ -25,6 +39,13 @@ int _printstring(va_list args, char Buffer[])
 	return (write(1, str, len));
 }
 
+/**
+ * _printpercent - Prints a percent symbol.
+ * @args: A va_list containing the arguments.
+ * @Buffer: The buffer to store the formatted output.
+ *
+ * Return: The number of characters printed.
+ */
 int _printpercent(va_list args, char Buffer[])
 {
 	NON(args);
@@ -33,21 +54,28 @@ int _printpercent(va_list args, char Buffer[])
 
 }
 
+/**
+ * _printint - Prints an integer.
+ * @args: A va_list containing the arguments.
+ * @Buffer: The buffer to store the formatted output.
+ *
+ * Return: The number of characters printed.
+ */
 int _printint(va_list args, char Buffer[])
 {
-	int i = BUFF_SIZE - 2;
+	int i = BUFF_SIZE - 3;
 	int neg = 0;
-	long int l = va_arg(args, long int);
-	unsigned long int n;
+	int l = va_arg(args, int);
+	unsigned int n;
 
 	if (l == 0)
 		Buffer[i--] = '0';
 	Buffer[BUFF_SIZE - 1] = '\0';
-	n = (unsigned long int)l;
+	n = (unsigned int)l;
 
 	if (l < 0)
 	{
-		n = (unsigned long int)(-l);
+		n = (unsigned int)(-l);
 		neg = 1;
 	}
 

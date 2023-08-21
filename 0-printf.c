@@ -1,7 +1,18 @@
 #include "main.h"
 
+/**
+ * _printbuffer - Flushes the content of the buffer to the standard output.
+ * @Buffer: The buffer containing characters to be printed.
+ * @index: A pointer to the current index in the buffer.
+ */
 void _printbuffer(char Buffer[], int *index);
 
+/**
+ * _printf - Custom implementation of the printf function.
+ * @format: The format string containing the format specifiers.
+ * @...: Additional arguments corresponding to format specifiers.
+ * Return: The total number of characters printed.
+ */
 int _printf(const char *format, ...)
 {
 	int i, output = 0, _printedchars = 0, index = 0;
@@ -34,6 +45,11 @@ int _printf(const char *format, ...)
 	return (_printedchars);
 }
 
+/**
+ * _printbuffer - Flushes the content of the buffer to the standard output.
+ * @Buffer: The buffer containing characters to be printed.
+ * @index: A pointer to the current index in the buffer.
+ */
 void _printbuffer(char Buffer[], int *index)
 {
 	if (*index > 0)
