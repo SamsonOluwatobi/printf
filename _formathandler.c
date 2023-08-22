@@ -49,6 +49,12 @@ int format_num(int index, char Buffer[], int len, char _ch)
 }
 
 
+/**
+ * format_unsgn - Formats an unsigned number and writes it to the buffer.
+ * @index: The starting index in the buffer.
+ * @Buffer: The buffer to store the formatted data.
+ * Return: The number of characters written.
+ */
 int format_unsgn(int index, char Buffer[])
 {
 	int len = BUFF_SIZE - index - 1;
@@ -57,6 +63,14 @@ int format_unsgn(int index, char Buffer[])
 	return (write(1, &Buffer[index], len));
 }
 
+
+/**
+ * format_pointer - Formats a pointer address and writes it to the buffer.
+ * @index: The starting index in the buffer.
+ * @Buffer: The buffer to store the formatted data.
+ * @_ch: The additional character.
+ * Return: The number of characters written.
+ */
 int format_pointer(int index, char Buffer[], char _ch)
 {
 	int len = BUFF_SIZE - index - 1;

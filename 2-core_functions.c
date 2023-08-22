@@ -1,5 +1,19 @@
 #include "main.h"
 
+/**
+ * _printunprintable - Formats and prints a string,
+ * converting unprintable characters to hexadecimal representation.
+ * @args: A va_list containing the arguments passed to the function.
+ * @Buffer: A character array to store the formatted output.
+ *
+ * This function takes a va_list containing arguments
+ * and a character buffer to store the formatted output.
+ * It processes the input string by replacing unprintable
+ * characters with their hexadecimal representations. The resulting string is
+ * stored in the Buffer and then written to the standard output.
+ *
+ * Return: The number of characters written to the standard output.
+ */
 int _printunprintable(va_list args, char Buffer[])
 {
 	int i = 0, o = 0;
@@ -20,6 +34,21 @@ int _printunprintable(va_list args, char Buffer[])
 	return (write(1, Buffer, i + o));
 }
 
+
+/**
+ * _printpointer - Formats and prints a pointer address
+ * in hexadecimal notation.
+ * @args: A va_list containing the arguments passed to the function.
+ * @Buffer: A character array to store the formatted output.
+ *
+ * This function takes a va_list containing arguments and
+ *  a character buffer to store the formatted output.
+ * It processes a pointer's address, converting it into
+ *  hexadecimal notation and storing the result in the Buffer.
+ * The formatted output is then written to the standard output.
+ *
+ * Return: The number of characters written to the standard output.
+ */
 int _printpointer(va_list args, char Buffer[])
 {
 	char _ch = 0;
