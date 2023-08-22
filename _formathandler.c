@@ -49,6 +49,16 @@ int format_num(int index, char Buffer[], int len, char _ch)
 }
 
 
+/**
+ * format_unsigned - Formats an unsigned number and writes it to the buffer.
+ * @index: The starting index in the buffer.
+ * @Buffer: The buffer to store the formatted data.
+ *
+ * This function formats an unsigned number and
+ * writes it to the buffer starting from the given index.
+ *
+ * Return: The number of characters written.
+ */
 int format_unsigned(int index, char Buffer[])
 {
 	int len = BUFF_SIZE - index - 1;

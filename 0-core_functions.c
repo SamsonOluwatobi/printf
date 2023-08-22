@@ -90,6 +90,13 @@ int _printint(va_list args, char Buffer[])
 }
 
 
+/**
+ * _printbinary - Prints an integer in binary format.
+ * @args: A va_list containing the arguments.
+ * @Buffer: The buffer to store the formatted output.
+ *
+ * Return: The number of characters printed.
+ */
 int _printbinary(va_list args, char Buffer[])
 {
 	unsigned int n, bitmask, bit[32], i, bit_count;
