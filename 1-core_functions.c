@@ -28,7 +28,7 @@ int _printunsigned(va_list args, char Buffer[])
 	}
 	i++;
 
-	return (format_unsigned(i, Buffer));
+	return (format_unsgn(i, Buffer));
 }
 
 
@@ -60,7 +60,7 @@ int _printoctal(va_list args, char Buffer[])
 	}
 	i++;
 
-	return (format_unsigned(i, Buffer));
+	return (format_unsgn(i, Buffer));
 }
 
 /**
@@ -92,7 +92,7 @@ int _printhex(va_list args, char Buffer[], char hexchars[])
 		n /= 16;
 	}
 	i++;
-	return (format_unsigned(i, Buffer));
+	return (format_unsgn(i, Buffer));
 }
 
 /**

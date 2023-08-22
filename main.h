@@ -35,8 +35,8 @@ int format_output(const char *formatMap,
 int format_char(char c, char Buffer[]);
 int format_number(int neg, int index, char Buffer[]);
 int format_num(int index, char Buffer[], int len, char _ch);
-int format_unsigned(int index, char Buffer[]);
-
+int format_unsgn(int index, char Buffer[]);
+int format_pointer(int index, char Buffer[], char _ch);
 int format_output(const char *formatMap,
 		int *index, va_list ls, char Buffer[]);
 
@@ -51,6 +51,11 @@ int _printoctal(va_list args, char Buffer[]);
 int _printhex(va_list args, char Buffer[], char hexchars[]);
 int _printhexlow(va_list args, char Buffer[]);
 int _printhexupper(va_list args, char Buffer[]);
+int _printunprintable(va_list args, char Buffer[]);
+int _printpointer(va_list args, char Buffer[]);
 
+
+int _printable(char c);
+int _apphex(char ac, char Buffer[], int i);
 
 #endif

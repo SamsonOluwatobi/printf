@@ -49,10 +49,21 @@ int format_num(int index, char Buffer[], int len, char _ch)
 }
 
 
-int format_unsigned(int index, char Buffer[])
+int format_unsgn(int index, char Buffer[])
 {
 	int len = BUFF_SIZE - index - 1;
 
 
+	return (write(1, &Buffer[index], len));
+}
+
+int format_pointer(int index, char Buffer[], char _ch)
+{
+	int len = BUFF_SIZE - index - 1;
+
+	Buffer[--index] = 'x';
+	Buffer[--index] = '0';
+	if (_ch)
+		Buffer[--index] = _ch;
 	return (write(1, &Buffer[index], len));
 }

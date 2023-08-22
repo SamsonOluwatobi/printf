@@ -26,7 +26,8 @@ int format_output(const char *formatMap,
 		{'c', _printchar}, {'s', _printstring}, {'%', _printpercent},
 		{'i', _printint}, {'d', _printint}, {'b', _printbinary},
 		{'u', _printunsigned}, {'o', _printoctal}, {'x', _printhexlow},
-		{'X', _printhexupper}, {'\0', NULL}
+		{'X', _printhexupper}, {'S', _printunprintable}, {'p', _printpointer},
+		{'\0', NULL}
 	};
 
 	for (i = 0; format_types[i].formatMap != '\0'; i++)
