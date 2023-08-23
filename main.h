@@ -58,4 +58,11 @@ int _printpointer(va_list args, char Buffer[]);
 int _printable(char c);
 int _apphex(char ac, char Buffer[], int i);
 
+int flags_chara(const char *format, int *i);
+
+int handle_int_conversion(const char *format, va_list args);
+unsigned int handle_octal_conversion(const char *format, va_list args);
+unsigned int handle_hex_conversion(const char *format, va_list args);
+unsigned int handle_unsigned_conversion(const char *format, va_list args);
+
 #endif
